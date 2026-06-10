@@ -16,3 +16,14 @@ transform left_pos:
 transform right_pos:
     xalign 0.8
     yalign 1.0
+
+transform panic_pulse:
+    alpha 0.0
+    zoom 1.0
+
+    block:
+        ease 0.25 alpha 0.18 zoom 1.01
+        ease 0.25 alpha 0.30 zoom 1.03
+        ease 0.25 alpha 0.12 zoom 1.01
+        ease 0.25 alpha 0.26 zoom 1.04
+        repeat
