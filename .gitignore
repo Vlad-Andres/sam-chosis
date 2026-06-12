@@ -26,3 +26,5 @@
 /dialogue.txt
 /strings.json
 .DS_Store
+
+.trae/
