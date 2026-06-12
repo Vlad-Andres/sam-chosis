@@ -54,6 +54,8 @@ image title_card_10_minutes = Fixed(
     Text("10 minutes later", xalign=0.5, yalign=0.5, size=72, color="#ffffff"),
 )
 
+image menu_bg = Transform("images/objects/flowers.png", fit="cover", size=(1920, 1080))
+
 image panic_overlay = Solid("#7a0018")
 
 ## -- Sam character expressions --

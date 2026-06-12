@@ -298,6 +298,7 @@ screen navigation():
         spacing gui.navigation_spacing
 
         if main_menu:
+
             textbutton _("Play") action Start()
             textbutton _("Preferences") action ShowMenu("preferences")
 
@@ -346,7 +347,8 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    # add gui.main_menu_background
+    add "menu_bg" at slow_zoom
 
     ## This empty frame darkens the main menu.
     frame:

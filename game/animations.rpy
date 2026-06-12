@@ -202,4 +202,8 @@ transform heartbeat_shake_nomed_fast:
         pause 0.15
         repeat
 
-
+transform slow_zoom:
+    zoom 1.0
+    linear 20.0 zoom 1.1
+    linear 20.0 zoom 1.0
+    repeat
