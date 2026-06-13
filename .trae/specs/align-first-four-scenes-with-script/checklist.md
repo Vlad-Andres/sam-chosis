@@ -1,0 +1,12 @@
+- [x] Disclaimer appears before gameplay and can be advanced without errors.
+- [x] Scene 1 (Bedroom) matches the script beats and includes wake-up transition and audio hooks without requiring files.
+- [x] Scene 1 includes an inconsequential mirror choice and continues correctly to the kitchen.
+- [x] Scene 2 starts loud music on entry and stops it only after the phone realization beat.
+- [x] Breakfast choice sets `flag["breakfast"]` and shows the correct close-up insert before returning to kitchen.
+- [x] Meds choice sets `flag["meds"]` and later scenes reference it for branching.
+- [x] Scene 3 exists and is reachable from Scene 2; includes meds vs no-meds branches and “10 minutes later” beat.
+- [x] Mystery Person hallucination is resolved via Charlie not approaching; hallucination “fades away” beat is present.
+- [x] Scene 4 exists and is reachable from Scene 3; includes supermarket ambient hooks and aisle crowd beat.
+- [x] Panic sequence includes a pulsing/heartbeat build, hallucination “staring” beat, grounding by Charlie, and snap-back to normal.
+- [x] Grandpa asks “Are you okay?”, Sam responds, and the scene ends cleanly at the draft END marker.
+- [ ] Ren’Py lint passes and a full playthrough of all branches completes with no missing image/audio errors.

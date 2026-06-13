@@ -1,12 +1,16 @@
 ### Images
-image bg bedroom = Fixed(
-    Solid("#1b1c22"),
-    Text("Bedroom (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
+
+## -- Helper: scale a JPG background to fill screen --
+## Use Transform with fit="cover" on every background
+
+image bg bedroom = ConditionSwitch(
+    "flag['meds']", Transform("images/backgrounds/bedroom_med.jpg", fit="cover", size=(1920, 1080)),
+    "True",         Transform("images/backgrounds/bedroom_nomed.jpg", fit="cover", size=(1920, 1080)),
 )
 
-image bg kitchen = Fixed(
-    Solid("#1c221b"),
-    Text("Kitchen (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
+image bg kitchen = ConditionSwitch(
+    "flag['meds']", Transform("images/backgrounds/kitchen_med.jpg", fit="cover", size=(1920, 1080)),
+    "True",         Transform("images/backgrounds/kitchen_nomed.jpg", fit="cover", size=(1920, 1080)),
 )
 
 image eggs_closeup = Fixed(
@@ -19,44 +23,63 @@ image cereal_closeup = Fixed(
     Text("top down view of the cereal saying goodmorning Sam?", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
 )
 
-image phone = Fixed(
-    Solid("#1b1c22"),
-    Text("Phone Screen (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
+## Phone shown as overlay on kitchen background
+image phone = Transform("images/objects/phone.png", fit="contain", size=(400, 700), xalign=0.5, yalign=0.5)
+
+
+image bg park = ConditionSwitch(
+    "flag['meds']", Transform("images/backgrounds/park_med.jpg", fit="cover", size=(1920, 1080)),
+    "True",         Transform("images/backgrounds/park_nomed.jpg", fit="cover", size=(1920, 1080)),
 )
 
-image bg sidewalk = Fixed(
-    Solid("#30465f"),
-    Text("Sidewalk (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
+image bg supermarket_entrance = ConditionSwitch(
+    "flag['meds']", Transform("images/backgrounds/store_med.jpg", fit="cover", size=(1920, 1080)),
+    "True",         Transform("images/backgrounds/store_nomed.jpg", fit="cover", size=(1920, 1080)),
 )
 
-image bg park_flowers = Fixed(
-    Solid("#3d6b49"),
-    Text("Park / Flowers (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
+image bg supermarket_aisle = ConditionSwitch(
+    "flag['meds']", Transform("images/backgrounds/aisle_med.jpg", fit="cover", size=(1920, 1080)),
+    "True",         Transform("images/backgrounds/aisle_nomed.jpg", fit="cover", size=(1920, 1080)),
 )
 
-image bg supermarket_entrance = Fixed(
-    Solid("#5a4e68"),
-    Text("Supermarket Entrance (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
+image bg supermarket_aisle_stare = ConditionSwitch(
+    "flag['meds']", Transform("images/backgrounds/pplstaring_med.jpg", fit="cover", size=(1920, 1080)),
+    "True",         Transform("images/backgrounds/pplstaring_nomed.jpg", fit="cover", size=(1920, 1080)),
 )
 
-image bg supermarket_breakfast_aisle = Fixed(
-    Solid("#6a6f3d"),
-    Text("Supermarket Breakfast Aisle (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
-)
-
-image bg supermarket_crowded_aisle = Fixed(
-    Solid("#6d4b3a"),
-    Text("Crowded Aisle (placeholder)", xalign=0.5, yalign=0.5, size=64, color="#ffffff"),
-)
-
-image bg supermarket_crowded_aisle_stare = Fixed(
-    Solid("#52273a"),
-    Text("Crowded Aisle - Everyone Staring (placeholder)", xalign=0.5, yalign=0.5, size=56, color="#ffffff"),
-)
+image bg eggs = Transform("images/objects/eggs.gif", fit="cover", size=(1920, 1080))
 
 image title_card_10_minutes = Fixed(
     Solid("#111111"),
     Text("10 minutes later", xalign=0.5, yalign=0.5, size=72, color="#ffffff"),
 )
 
-image panic_overlay = Solid("#7a001833")
+image menu_bg = Transform("images/objects/flowers.png", fit="cover", size=(1920, 1080))
+
+image panic_overlay = Solid("#7a0018")
+
+## -- Sam character expressions --
+image sam pjs     = Transform("images/sam/pjs.png",       fit="contain", size=(500, 900), yalign=1.0)
+image sam happy   = Transform("images/sam/happy.png",     fit="contain", size=(500, 900), yalign=1.0)
+image sam sad     = Transform("images/sam/sad.png",       fit="contain", size=(500, 900), yalign=1.0)
+image sam angry   = Transform("images/sam/angry.png",     fit="contain", size=(500, 900), yalign=1.0)
+image sam scared  = Transform("images/sam/scared.png",    fit="contain", size=(500, 900), yalign=1.0)
+image sam shocked = Transform("images/sam/shocked.png",   fit="contain", size=(500, 900), yalign=1.0)
+image sam confused= Transform("images/sam/confused.png",  fit="contain", size=(500, 900), yalign=1.0)
+image sam embarassed = Transform("images/sam/embarassed.png", fit="contain", size=(500, 900), yalign=1.0)
+
+## -- Mystery person (woman) — switches on meds flag --
+image mystery_person_sprite = ConditionSwitch(
+    "flag['meds']", Transform("images/characters/woman_med.png",   fit="contain", size=(450, 850), yalign=1.0),
+    "True",         Transform("images/characters/woman_nomed.png", fit="contain", size=(450, 850), yalign=1.0),
+)
+
+## -- Grandpa --
+image grandpa_sprite = Transform("images/characters/grandpa.png", fit="contain", size=(450, 850), yalign=1.0)
+
+## -- Objects --
+image obj_dog       = Transform("images/objects/dog.png",       fit="contain", size=(300, 300), yalign=1.0)
+image obj_butterfly = Transform("images/objects/butterfly.png", fit="contain", size=(350, 350))
+image obj_flowers   = Transform("images/objects/flowers.png",   fit="contain", size=(400, 400), yalign=1.0)
+image obj_meds      = Transform("images/objects/meds.png",      fit="contain", size=(200, 200))
+image obj_hand      = Transform("images/objects/hand.png",      fit="contain", size=(300, 300))
