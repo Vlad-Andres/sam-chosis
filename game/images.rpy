@@ -57,6 +57,9 @@ image title_card_10_minutes = Fixed(
 image menu_bg = Transform("images/objects/flowers.png", fit="cover", size=(1920, 1080))
 
 image panic_overlay = Solid("#7a0018")
+image fx_haze = Solid("#ffffff")
+image fx_eyelid_top = Transform(Solid("#000000"), xysize=(1920, 540))
+image fx_eyelid_bottom = Transform(Solid("#000000"), xysize=(1920, 540))
 
 ## -- Sam character expressions --
 image sam pjs     = Transform("images/sam/pjs.png",       fit="contain", size=(500, 900), yalign=1.0)
