@@ -19,6 +19,40 @@ transform butterfly_flutter:
         linear 1.4  xalign 0.75 yalign 0.25 rotate 10
         repeat
 
+transform wakeup_haze_hold:
+    alpha 0.26
+
+transform wakeup_haze_fadeout:
+    alpha 0.26
+    ease 0.9 alpha 0.0
+
+transform eyelid_top_open:
+    xalign 0.5
+    yalign 0.0
+    yoffset 0
+    ease 1.2 yoffset -540
+
+transform eyelid_bottom_open:
+    xalign 0.5
+    yalign 1.0
+    yoffset 0
+    ease 1.2 yoffset 540
+
+transform hand_reach_butterfly:
+    xalign 0.85 yalign 1.05
+    rotate -18
+    alpha 0.0
+    ease 0.15 alpha 1.0
+    ease 0.85 xalign 0.58 yalign 0.58 rotate 6 zoom 1.08
+    ease 0.35 alpha 0.0
+
+transform wakeup_blur_hold:
+    alpha 1.0
+
+transform wakeup_blur_fadeout:
+    alpha 1.0
+    ease 1.0 alpha 0.0
+
 # Tried a fancier zoom in, doesn't look that nice
 transform pan_zoom_in:
     zoom 1.0
