@@ -87,7 +87,7 @@ label scene_2:
 
     show sam happy at right
     with dissolve
-    show obj_dog at Transform(xalign=0.05, yalign=1.0)
+    show obj_dog at Transform(xalign=-0.005, yalign=1.0, zoom=1.37)
     with dissolve
     "You call for your support dog, Charlie, a poodle, and grab her leash from the table. She runs over happily."
     "Sometimes my medication doesn't make me feel great."

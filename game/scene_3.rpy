@@ -42,7 +42,7 @@ label scene_3:
     with dissolve
 
     # show expression get_tone_overlay() as scene_tone
-    show obj_dog at Transform(xalign=0.18, yalign=0.75)
+    show obj_dog at Transform(xalign=0.28, yalign=0.8)
     show sam confused at left
     with dissolve
 

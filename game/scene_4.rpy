@@ -45,7 +45,7 @@ label scene_4:
 
     
     # Dog appears: heartbeat decreases (back to slow) & slow audio
-    show obj_dog at left
+    show obj_dog at Transform(xalign=-0.01, yalign=1.0, zoom=1.37)
     show panic_overlay at (panic_pulse_med_slow if flag["meds"] else panic_pulse_nomed_slow)
     show layer master at (heartbeat_shake_med_slow if flag["meds"] else heartbeat_shake_nomed_slow)
     with dissolve
@@ -60,7 +60,8 @@ label scene_4:
     $ stop_audio(channel="sound", fadeout=1.5)
     with Dissolve(1.5)
 
-    scene bg supermarket_aisle_stare
+    scene bg supermarket_aisle_stare at Transform(yalign=0.55)
+
     with Fade(0.05, 0.0, 0.2, color="#fff")
 
 
@@ -75,7 +76,7 @@ label scene_4:
 
     $ stop_audio(channel="sound", fadeout=0.25)
 
-    show obj_dog at left
+    show obj_dog at Transform(xalign=-0.005, yalign=1.0, zoom = 1.37)
     show sam confused at right
     # Plays slow heartbeat audio as the heartbeat decreases
     show panic_overlay at (panic_pulse_med_slow if flag["meds"] else panic_pulse_nomed_slow)
@@ -92,7 +93,7 @@ label scene_4:
     $ stop_audio(channel="sound", fadeout=0.3)
     with Dissolve(0.3)
 
-    scene bg supermarket_aisle
+    scene bg supermarket_aisle at Transform(yalign=0.5)
     with dissolve
 
     "You are snapped back to reality."
@@ -102,7 +103,7 @@ label scene_4:
     $ stop_audio(channel="sound", fadeout=0.5)
     $ play_audio_if_exists("audio/store_scanner.ogg", channel="sound")
 
-    show grandpa_sprite at Transform(xalign=0.75, yalign=1.0)
+    show grandpa_sprite at Transform(xalign=0.6, yalign=1.0)
     show sam embarassed at right
     with dissolve
     grandpa "Are you okay?"
@@ -137,6 +138,7 @@ Amelia Kapuścińska
 
 Programming
 Vlad Mutruc
+Stefan Leon
 
 Art
 Zita Rátkai
