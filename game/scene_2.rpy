@@ -123,7 +123,7 @@ label scene_2:
                 blur 20
             show obj_meds at Transform(xalign=0.5, yalign=0.7, zoom=4.5)
             with dissolve
-            $ play_audio_if_exists("audio/water_pouring.mp3", channel="sound")
+            $ play_audio_if_exists("audio/water_glass.mp3", channel="sound")
             "You get a glass of water and take your medication."
             hide obj_meds
             with dissolve
