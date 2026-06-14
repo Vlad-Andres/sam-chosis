@@ -25,7 +25,11 @@ image cereal_closeup = Fixed(
 
 ## Phone shown as overlay on kitchen background
 image phone = Transform("images/objects/phone.png", fit="contain", size=(400, 700), xalign=0.5, yalign=0.5)
+image eggs = Transform("images/objects/eggs.png", fit="contain", size=(800, 600), xalign=0.5, yalign=0.5)
+image eggs_smile = Transform("images/objects/eggs_smile.png", fit="contain", size=(800, 600), xalign=0.5, yalign=0.4)
 
+image cereal = Transform("images/objects/cereal.png", fit="contain", size=(800, 600), xalign=0.5, yalign=0.5)
+image cereal_hello = Transform("images/objects/cereal_hello.png", fit="contain", size=(800, 600), xalign=0.5, yalign=0.5)
 
 image bg park = ConditionSwitch(
     "flag['meds']", Transform("images/backgrounds/park_med.jpg", fit="cover", size=(1920, 1080)),
@@ -47,14 +51,12 @@ image bg supermarket_aisle_stare = ConditionSwitch(
     "True",         Transform("images/backgrounds/pplstaring_nomed.jpg", fit="cover", size=(1920, 1080)),
 )
 
-image bg eggs = Transform("images/objects/eggs.gif", fit="cover", size=(1920, 1080))
-
 image title_card_10_minutes = Fixed(
     Solid("#111111"),
     Text("10 minutes later", xalign=0.5, yalign=0.5, size=72, color="#ffffff"),
 )
 
-image menu_bg = Transform("images/objects/flowers.png", fit="cover", size=(1920, 1080))
+image menu_bg = Transform("images/backgrounds/start_screen.jpg", fit="cover", size=(1920, 1080))
 
 image panic_overlay = Solid("#7a0018")
 image fx_haze = Solid("#ffffff")

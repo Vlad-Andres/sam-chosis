@@ -241,3 +241,10 @@ transform slow_zoom:
     linear 20.0 zoom 1.1
     linear 20.0 zoom 1.0
     repeat
+
+image credits_overlay = Solid("#00000088")
+
+transform credits_scroll:
+    xalign 0.5
+    ypos 1100
+    linear 20.0 ypos -2500

@@ -118,6 +118,40 @@ label scene_4:
     with dissolve
     sam "I'm fine, thanks! Come on Charlie, good girl."
 
-    centered "{size=48}-- END --{/size}"
+    jump credits
+
+
+default credits_text = """
+{size=60}{b}Thank You for Playing!{/b}{/size}
+
+Storyline
+Amelia Kapuścińska
+Zita Rátkai
+Viktoria Stojanov
+Min Yue Tan
+Stefan Leon
+Vlad Mutruc
+
+Scripting & Writing
+Amelia Kapuścińska
+
+Programming
+Vlad Mutruc
+
+Art
+Zita Rátkai
+
+Music & Sound Effects
+Viktoria Stojanov
+"""
+
+label credits:
+
+    scene menu_bg
+    with fade
+
+    show credits_overlay
+    show expression Text(credits_text, color="#FFFFFF", outlines=[(3, "#000000", 0, 0)]) at credits_scroll
+    pause 20.0
 
     return

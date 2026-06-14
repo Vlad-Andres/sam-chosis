@@ -21,18 +21,24 @@ label scene_2:
         "Cereal":
             $ flag["breakfast"] = "cereal"
             $ play_audio_if_exists("audio/cereal.ogg", channel="sound")
+            show cereal
+            with dissolve
             "You decide on something quick and easy. After pouring milk in your bowl you add your favorite cereal."
-
-            scene cereal_closeup
+            hide cereal
+            show cereal_hello
+            with dissolve
             "Huh, weird that they made words."
         "Eggs":
             $ flag["breakfast"] = "eggs"
             $ play_audio_if_exists("audio/eggs.ogg", channel="sound")
+
+            show eggs
+            with dissolve
             "You decide on eggs and bacon. After heating up the pan the food cooks quickly and you put it on your plate."
-
-            scene bg eggs
+            hide eggs
+            show eggs_smile
+            with dissolve
             "You don't remember putting the food on the plate in this order."
-
 
     show sam happy at right
     with dissolve
