@@ -9,6 +9,7 @@ label scene_3:
 
     $ play_audio_if_exists("audio/city_walk_soft.ogg" if flag["meds"] else "audio/city_walk_vivid.ogg", channel="music", loop=True, fadein=tone_fadein())
 
+    $ play_audio_if_exists("audio/outside_noise.wav", channel="sound", loop=True)
     "You step outside. The air is warm and there is a slight breeze."
     "You make your way towards the grocery store, a route engrained in your memory."
 

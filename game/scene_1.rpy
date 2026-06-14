@@ -72,7 +72,7 @@ label scene_1:
             with dissolve
             "Your reflection hesitates, a fraction out of sync, like it's remembering how to be you."
 
-    $ play_audio_if_exists("audio/clothing.wav", channel="sound")
+    $ play_audio_if_exists("audio/steps_door.wav", channel="sound")
     "You decide it's time to go to the kitchen and have some breakfast."
 
     call scene_2

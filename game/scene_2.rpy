@@ -9,7 +9,7 @@ label scene_2:
     with dissolve
 
     $ renpy.music.stop(channel="music", fadeout=1.0)
-    $ play_audio_if_exists("audio/rock_music.ogg", channel="music", loop=True, fadein=1.0)
+    $ play_audio_if_exists("audio/rock_music_muffled.wav", channel="music", loop=True, fadein=1.0)
 
     "As you enter the kitchen, you are greeted by the sound of your roommate, Michael, playing music loudly playing through his door."
     hide sam
