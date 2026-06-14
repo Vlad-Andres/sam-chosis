@@ -80,7 +80,7 @@ image mystery_person_sprite = ConditionSwitch(
 )
 
 ## -- Grandpa --
-image grandpa_sprite = Transform("images/characters/grandpa.png", fit="contain", size=(450, 850), yalign=1.0, zoom=1.9)
+image grandpa_sprite = Transform("images/characters/grandpa.png", fit="contain", size=(450, 850), yalign=1.0, zoom=1.85)
 
 ## -- Objects --
 image obj_dog       = Transform("images/objects/dog.png",       fit="contain", size=(300, 300), yalign=1.0, zoom=1.38)
