@@ -19,6 +19,10 @@ init python:
     def stop_audio(channel="sound", fadeout=0.0):
         renpy.music.stop(channel=channel, fadeout=fadeout)
 
+    renpy.music.register_channel(
+        "sound2"
+    )
+
 
 label start:
     call scene_1

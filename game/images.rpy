@@ -64,26 +64,26 @@ image fx_eyelid_top = Transform(Solid("#000000"), xysize=(1920, 540))
 image fx_eyelid_bottom = Transform(Solid("#000000"), xysize=(1920, 540))
 
 ## -- Sam character expressions --
-image sam pjs     = Transform("images/sam/pjs.png",       fit="contain", size=(500, 900), yalign=1.0)
-image sam happy   = Transform("images/sam/happy.png",     fit="contain", size=(500, 900), yalign=1.0)
-image sam sad     = Transform("images/sam/sad.png",       fit="contain", size=(500, 900), yalign=1.0)
-image sam angry   = Transform("images/sam/angry.png",     fit="contain", size=(500, 900), yalign=1.0)
-image sam scared  = Transform("images/sam/scared.png",    fit="contain", size=(500, 900), yalign=1.0)
-image sam shocked = Transform("images/sam/shocked.png",   fit="contain", size=(500, 900), yalign=1.0)
-image sam confused= Transform("images/sam/confused.png",  fit="contain", size=(500, 900), yalign=1.0)
-image sam embarassed = Transform("images/sam/embarassed.png", fit="contain", size=(500, 900), yalign=1.0)
+image sam pjs     = Transform("images/sam/pjs.png",       fit="contain", size=(500, 900), yalign=1.0, zoom=1.6)
+image sam happy   = Transform("images/sam/happy.png",     fit="contain", size=(500, 900), yalign=1.0, zoom=1.6)
+image sam sad     = Transform("images/sam/sad.png",       fit="contain", size=(500, 900), yalign=1.0, zoom=1.6)
+image sam angry   = Transform("images/sam/angry.png",     fit="contain", size=(500, 900), yalign=1.0, zoom=1.55)
+image sam scared  = Transform("images/sam/scared.png",    fit="contain", size=(500, 900), yalign=1.0, zoom=1.6)
+image sam shocked = Transform("images/sam/shocked.png",   fit="contain", size=(500, 900), yalign=1.0, zoom=1.6)
+image sam confused= Transform("images/sam/confused.png",  fit="contain", size=(500, 900), yalign=1.0, zoom=1.6)
+image sam embarassed = Transform("images/sam/embarassed.png", fit="contain", size=(500, 900), yalign=1.0, zoom=1.6)
 
 ## -- Mystery person (woman) — switches on meds flag --
 image mystery_person_sprite = ConditionSwitch(
-    "flag['meds']", Transform("images/characters/woman_med.png",   fit="contain", size=(450, 850), yalign=1.0),
-    "True",         Transform("images/characters/woman_nomed.png", fit="contain", size=(450, 850), yalign=1.0),
+    "flag['meds']", Transform("images/characters/woman_med.png",   fit="contain", size=(450, 850), yalign=1.0, zoom=1.78),
+    "True",         Transform("images/characters/woman_nomed.png", fit="contain", size=(450, 850), yalign=1.0, zoom = 1.78),
 )
 
 ## -- Grandpa --
-image grandpa_sprite = Transform("images/characters/grandpa.png", fit="contain", size=(450, 850), yalign=1.0)
+image grandpa_sprite = Transform("images/characters/grandpa.png", fit="contain", size=(450, 850), yalign=1.0, zoom=1.85)
 
 ## -- Objects --
-image obj_dog       = Transform("images/objects/dog.png",       fit="contain", size=(300, 300), yalign=1.0)
+image obj_dog       = Transform("images/objects/dog.png",       fit="contain", size=(300, 300), yalign=1.0, zoom=1.38)
 image obj_butterfly = Transform("images/objects/butterfly.png", fit="contain", size=(350, 350))
 image obj_flowers   = Transform("images/objects/flowers.png",   fit="contain", size=(400, 400), yalign=1.0)
 image obj_meds      = Transform("images/objects/meds.png",      fit="contain", size=(200, 200))

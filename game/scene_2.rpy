@@ -9,7 +9,7 @@ label scene_2:
     with dissolve
 
     $ renpy.music.stop(channel="music", fadeout=1.0)
-    $ play_audio_if_exists("audio/rock_music.ogg", channel="music", loop=True, fadein=1.0)
+    $ play_audio_if_exists("audio/rock_music_muffled.wav", channel="music", loop=True, fadein=1.0)
 
     "As you enter the kitchen, you are greeted by the sound of your roommate, Michael, playing music loudly playing through his door."
     hide sam
@@ -20,31 +20,38 @@ label scene_2:
         "What do you want for breakfast?"
         "Cereal":
             $ flag["breakfast"] = "cereal"
-            $ play_audio_if_exists("audio/cereal.ogg", channel="sound")
-            show cereal
+            $ play_audio_if_exists("audio/cereal.mp3", channel="sound")
+            show bg kitchen:
+                blur 20
+            show sam embarassed:
+                blur 6
+            show cereal at Transform(zoom=1.6)
             with dissolve
             "You decide on something quick and easy. After pouring milk in your bowl you add your favorite cereal."
             hide cereal
-            show cereal_hello
+            show cereal_hello at Transform(zoom=1.6)
             with dissolve
             "Huh, weird that they made words."
         "Eggs":
             $ flag["breakfast"] = "eggs"
-            $ play_audio_if_exists("audio/eggs.ogg", channel="sound")
-
-            show eggs
+            $ play_audio_if_exists("audio/eggs.wav", channel="sound")
+            show bg kitchen:
+                blur 20
+            show sam embarassed:
+                blur 6
+            show eggs at Transform(zoom=1.6)
             with dissolve
             "You decide on eggs and bacon. After heating up the pan the food cooks quickly and you put it on your plate."
             hide eggs
-            show eggs_smile
+            show eggs_smile at Transform(zoom=1.6)
             with dissolve
             "You don't remember putting the food on the plate in this order."
 
+    scene bg kitchen
     show sam happy at right
     with dissolve
 
     "You sit down and start eating your breakfast."
-    scene bg kitchen    
     show sam angry at right
     
     "But your roommate's loud music is starting to annoy you."
@@ -56,13 +63,19 @@ label scene_2:
 
     sam "Michael, turn down your music!"
     "Nothing happens, he doesn't seem to hear you."
-    $ play_audio_if_exists("audio/door_banging.ogg", channel="sound")
+    $ play_audio_if_exists("audio/door_banging.wav", channel="sound", loop=True)
     "You hit his door again."
 
     sam "MICHAEL!!! I'm serious, turn it down!!"
+
+    $ stop_audio(channel="sound", fadeout=0.3)
     "Frustrated, you rush over and grab your phone to call him."
 
-    show phone
+    show bg kitchen: 
+        blur 20
+    show sam angry: 
+        blur 6
+    show phone at Transform(zoom = 2.3)
     with dissolve
 
     "But as you pull up your messages you realize he texted you saying he was leaving the house early today."
@@ -73,9 +86,13 @@ label scene_2:
     "Suddenly the loud music stops."
     "The sound was just a hallucination."
 
+    show bg kitchen:
+        blur 0
+    hide sam angry
     hide phone
     with dissolve
 
+    # scene bg kitchen
     show sam embarassed at right
     with dissolve
 
@@ -87,7 +104,7 @@ label scene_2:
 
     show sam happy at right
     with dissolve
-    show obj_dog at Transform(xalign=0.05, yalign=1.0)
+    show obj_dog at Transform(xalign=-0.005, yalign=1.0, zoom=1.37)
     with dissolve
     "You call for your support dog, Charlie, a poodle, and grab her leash from the table. She runs over happily."
     "Sometimes my medication doesn't make me feel great."
@@ -98,8 +115,15 @@ label scene_2:
         "Before I leave, I remember my psychosis medication…should I take it?"
         "Yes":
             "I don't always like taking my medication, it makes me feel tired and sad sometimes. But after talking with my doctors, I know it's what's best for me. I've tried other ones, and this one works the best."
-            show obj_meds at Transform(xalign=0.5, yalign=0.7)
+            show sam happy:
+                blur 6
+            show obj_dog:
+                blur 7
+            show bg kitchen:
+                blur 20
+            show obj_meds at Transform(xalign=0.5, yalign=0.7, zoom=4.5)
             with dissolve
+            $ play_audio_if_exists("audio/water_glass.mp3", channel="sound")
             "You get a glass of water and take your medication."
             hide obj_meds
             with dissolve

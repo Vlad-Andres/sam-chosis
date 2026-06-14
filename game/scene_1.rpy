@@ -52,12 +52,13 @@ label scene_1:
     show sam pjs at right
     with dissolve
 
-    $ play_audio_if_exists("audio/bedsheets_rustle.ogg", channel="sound")
+    $ play_audio_if_exists("audio/bedsheets_rustle.wav", channel="sound")
     "The bedsheets rustle as you shift, still half-lost in sleep."
 
     $ stop_audio(channel="sound", fadeout=0.5)
     "After lying in bed for a while, it's time for you to get up and start your day."
 
+    $ play_audio_if_exists("audio/clothing.wav", channel="sound")
     "You shift your attention to the mirror and look at yourself."
 
     menu:
@@ -71,7 +72,7 @@ label scene_1:
             with dissolve
             "Your reflection hesitates, a fraction out of sync, like it's remembering how to be you."
 
-    $ play_audio_if_exists("audio/footsteps.ogg", channel="sound")
+    $ play_audio_if_exists("audio/steps_door.wav", channel="sound")
     "You decide it's time to go to the kitchen and have some breakfast."
 
     call scene_2

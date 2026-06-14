@@ -9,6 +9,7 @@ label scene_3:
 
     $ play_audio_if_exists("audio/city_walk_soft.ogg" if flag["meds"] else "audio/city_walk_vivid.ogg", channel="music", loop=True, fadein=tone_fadein())
 
+    $ play_audio_if_exists("audio/outside_noise.wav", channel="sound", loop=True)
     "You step outside. The air is warm and there is a slight breeze."
     "You make your way towards the grocery store, a route engrained in your memory."
 
@@ -42,7 +43,7 @@ label scene_3:
     with dissolve
 
     # show expression get_tone_overlay() as scene_tone
-    show obj_dog at Transform(xalign=0.18, yalign=0.75)
+    show obj_dog at Transform(xalign=0.28, yalign=0.8)
     show sam confused at left
     with dissolve
 
