@@ -42,6 +42,7 @@ label scene_4:
     "You feel like everyone is looking at you."
     
     # Sound becomes muffled
+    $ stop_audio(channel="music", fadeout=3.0)
 
     # Heartbeat becomes even more frequent (fast) & fast audio
     show panic_overlay at (panic_pulse_med_fast if flag["meds"] else panic_pulse_nomed_fast)
@@ -99,6 +100,8 @@ label scene_4:
     $ stop_audio(channel="sound2", fadeout=0.3)
     $ stop_audio(channel="sound", fadeout=0.3)
     $ play_audio_if_exists("audio/store_ambience.mp3", channel="sound", loop=True, fadein=4.3)
+    $ play_audio_if_exists("audio/schizo_supermarket.mp3", channel="music", loop=True)
+    
     with Dissolve(0.3)
 
     scene bg supermarket_aisle at Transform(yalign=0.5)
