@@ -13,8 +13,8 @@ label scene_1:
     scene bg bedroom
     show bg bedroom:
         blur 60
-    show obj_butterfly at butterfly_flutter
     show fx_haze at wakeup_haze_hold
+    show obj_butterfly at butterfly_flutter
 
     show fx_eyelid_top at eyelid_top_open
     show fx_eyelid_bottom at eyelid_bottom_open

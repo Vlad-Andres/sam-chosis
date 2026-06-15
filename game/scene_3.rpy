@@ -70,6 +70,7 @@ label scene_3:
 
     show mystery_person_sprite at right
     with dissolve
+    $ play_audio_if_exists("audio/hey.wav", channel="sound2")
     mystery_person "Hi, I'm a bit lost, can you help me find the post office?"
 
     if not flag["meds"]:

@@ -20,8 +20,13 @@ init python:
         renpy.music.stop(channel=channel, fadeout=fadeout)
 
     renpy.music.register_channel(
-        "sound2"
+        "sound2",
+        mixer="sound",
     )
+
+    preferences.set_volume("music", 0.5)
+    preferences.set_volume("sound", 0.9)
+    preferences.set_volume("sound2", 0.7)
 
 
 label start:

@@ -20,7 +20,7 @@ label scene_2:
             $ flag["breakfast"] = "cereal"
             show bg kitchen:
                 blur 20
-            show sam embarassed:
+            show sam angry:
                 blur 6
             show cereal at Transform(zoom=1.6)
             with dissolve
@@ -36,7 +36,7 @@ label scene_2:
             $ play_audio_if_exists("audio/eggs.wav", channel="sound")
             show bg kitchen:
                 blur 20
-            show sam embarassed:
+            show sam angry:
                 blur 6
             show eggs at Transform(zoom=1.6)
             with dissolve
@@ -100,7 +100,7 @@ label scene_2:
     hide sam angry
     hide phone
     with dissolve
-    $ play_audio_if_exists("audio/schizo_kitchen.mp3", channel="music", loop=True)
+    $ play_audio_if_exists("audio/schizo_kitchen.mp3", channel="music", loop=True, fadein=2.0)
 
     # scene bg kitchen
     show sam embarassed at right
@@ -113,14 +113,14 @@ label scene_2:
     $ play_audio_if_exists("audio/water_running.wav", channel="sound", loop=True, fadein=0.5)
     "You decide to wash your plate and go to the grocery store."
 
-    $ renpy.music.stop(channel="sound")
+    $ renpy.music.stop(channel="sound", fadeout=3.0)
 
     show sam happy at right
     with dissolve
     show obj_dog at Transform(xalign=-0.005, yalign=1.0, zoom=1.37)
     with dissolve
     sam "Charlie, come here!"
-    $ play_audio_if_exists("audio/bark.wav", channel="sound")
+    $ play_audio_if_exists("audio/bark.wav", channel="sound2")
     "Charlie, your support dog, comes running towards you, cheerfully."
     "You grab her leash from the table."
     "Your doctors suggested getting a support dog a while back."
@@ -134,7 +134,7 @@ label scene_2:
         "Before you leave, you remember your psychosis medication…should you take it?"
         "Yes":
             "You don't always like taking your medication, it makes you feel tired and sad sometimes."
-            "But after talking with your doctors about it, you know it's what's best for you."
+            "But after talking to your doctors about it, you know it's what's best for you."
             "You've tried other ones, and this is the one that works the best."
             show sam happy:
                 blur 6
@@ -161,7 +161,6 @@ label scene_2:
 
     "Picking up Charlie's leash, you clip it on her collar and head outside."
     $ play_audio_if_exists("audio/steps_door.wav", channel="sound")
-    $ play_audio_if_exists("audio/door_open.ogg", channel="sound")
 
     call scene_3
     return

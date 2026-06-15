@@ -27,18 +27,19 @@ label scene_4:
     show sam scared at right
     with dissolve
 
+    $ stop_audio(channel="music", fadeout=5.3)
+    $ stop_audio(channel="sound", fadeout=5.3)
     "You feel overwhelmed, like an intruder."
     
     # Heartbeat becomes more frequent (medium) & medium audio
     $ play_audio_if_exists("audio/heartbeat_fast.mp3", channel="sound2", loop=True, start=0.5)
     show panic_overlay at (panic_pulse_med_medium if flag["meds"] else panic_pulse_nomed_medium)
     show layer master at (heartbeat_shake_med_medium if flag["meds"] else heartbeat_shake_nomed_medium)
-    $ stop_audio(channel="music", fadeout=3.3)
     
     "You feel like everyone is looking at you."
     
     # Sound becomes muffled
-    $ play_audio_if_exists("audio/schizo_supermarket_muffled.mp3", channel="music", loop=True, fadein = 1.3)
+    # $ play_audio_if_exists("audio/schizo_supermarket_muffled.mp3", channel="music", loop=True, fadein = 1.3)
     $ play_audio_if_exists("audio/store_ambience_muffled.wav", channel="sound", loop=True, fadein=3.3)
 
     # Heartbeat becomes even more frequent (fast) & fast audio
@@ -116,7 +117,7 @@ label scene_4:
     grandpa "Are you okay?"
     
     $ play_audio_if_exists("audio/bark.wav", channel="sound2")
-    "Charlie lets out a little reassuring bark."
+    "Charlie lets out a little reassuring bark, in greeting."
 
     hide scene_tone
     hide grandpa_sprite
@@ -127,7 +128,7 @@ label scene_4:
 
     show sam happy at right
     with dissolve
-    sam "I'm fine, thanks! Come on Charlie, good girl!"
+    sam "I'm fine, thank you! Come on Charlie, good girl!"
 
     jump credits
 
