@@ -5,7 +5,7 @@ label scene_1:
     scene black
     with Fade(0.25, 0.0, 0.75)
 
-    $ play_audio_if_exists("audio/nature_ambience.ogg", channel="music", loop=True, fadein=1.0)
+    $ play_audio_if_exists("audio/schizo_bed.mp3", channel="music", loop=True, fadein=1.0)
     $ play_audio_if_exists("audio/alarm.ogg", channel="sound")
 
     pause

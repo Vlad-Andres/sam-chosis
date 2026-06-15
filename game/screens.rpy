@@ -348,7 +348,7 @@ screen main_menu():
     tag menu
 
     # add gui.main_menu_background
-    add "menu_bg" at slow_zoom
+    add "menu_bg" at slow_zoom, Transform(yalign=1.1)
 
     ## This empty frame darkens the main menu.
     frame:

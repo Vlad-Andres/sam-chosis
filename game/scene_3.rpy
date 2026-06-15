@@ -7,7 +7,7 @@ label scene_3:
     show sam happy at left
     with dissolve
 
-    $ play_audio_if_exists("audio/city_walk_soft.ogg" if flag["meds"] else "audio/city_walk_vivid.ogg", channel="music", loop=True, fadein=tone_fadein())
+    $ play_audio_if_exists("audio/schizo_park.wav", channel="music", loop=True)
 
     $ play_audio_if_exists("audio/outside_noise.wav", channel="sound", loop=True)
     "You step outside. The air is warm and there is a slight breeze."
@@ -22,11 +22,23 @@ label scene_3:
 
     if flag["meds"]:
         "You look at the flowers, but they don't interest you."
+        hide sam happy with dissolve
+        show sam embarassed at left with dissolve
         "You decide not to waste any more time and call Charlie over so you can head on your way."
     else:
         "You feel the sun on your skin and enjoy the smell of the flowers around you."
         "Looking at the colorful landscape and seeing Charlie play makes you feel warm and fuzzy inside."
+        show bg park:
+            blur 20
+        show sam happy at left:
+            blur 6
+        show obj_dog at Transform(xalign=0.35, yalign=0.55):
+            blur 7
+        show obj_flowers at Transform(xalign=0.75, yalign=0.7, zoom=2.7)
+        with dissolve
+
         "While you admire the flowers, you notice that some look a bit off."
+
         "You decide to call Charlie over and head on your way."
 
     # hide obj_flowers

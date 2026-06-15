@@ -4,6 +4,7 @@ label scene_4:
 
 
     # $ play_audio_if_exists("audio/store_ambience.mp3" if flag["meds"] else "audio/store_music.ogg", channel="music", loop=True, fadein=tone_fadein())
+    $ play_audio_if_exists("audio/schizo_supermarket.mp3", channel="music", loop=True)
     $ play_audio_if_exists("audio/store_ambience.mp3", channel="sound", loop=True)
 
     "You step into the supermarket."

@@ -1,6 +1,4 @@
 label scene_2:
-
-    $ play_audio_if_exists("audio/door_open.ogg", channel="sound")
     scene bg kitchen
     with dissolve
 
@@ -91,6 +89,7 @@ label scene_2:
     hide sam angry
     hide phone
     with dissolve
+    $ play_audio_if_exists("audio/schizo_kitchen.wav", channel="music", loop=True)
 
     # scene bg kitchen
     show sam embarassed at right
@@ -123,7 +122,7 @@ label scene_2:
                 blur 20
             show obj_meds at Transform(xalign=0.5, yalign=0.7, zoom=4.5)
             with dissolve
-            $ play_audio_if_exists("audio/water_glass.mp3", channel="sound")
+            $ play_audio_if_exists("audio/water_glass.wav", channel="sound")
             "You get a glass of water and take your medication."
             hide obj_meds
             with dissolve
