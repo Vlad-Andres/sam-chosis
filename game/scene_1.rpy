@@ -6,7 +6,7 @@ label scene_1:
     with Fade(0.25, 0.0, 0.75)
 
     $ play_audio_if_exists("audio/schizo_bed.mp3", channel="music", loop=True, fadein=1.0)
-    $ play_audio_if_exists("audio/alarm.ogg", channel="sound")
+    $ play_audio_if_exists("audio/alarm.mp3", channel="sound")
 
     pause
 
@@ -24,9 +24,9 @@ label scene_1:
 
     window auto
     "You wake up in your bedroom to the sound of your alarm going off."
-    "You try and catch the butterfly flying around your room and reach out to touch it…"
+    "You see a butterfly flying around your room and reach out to touch it…"
 
-    show obj_hand at hand_reach_butterfly
+    show obj_hand at hand_reach_butterfly, Transform(zoom=1.35)
     pause 1.2
 
     hide obj_hand
@@ -39,7 +39,9 @@ label scene_1:
     with dissolve
 
     $ stop_audio(channel="sound", fadeout=0.25)
-    "But your hand phases through it, the butterfly wasn't real. They usually aren't…"
+    "But your hand phases through it."
+    "The butterfly wasn't real."
+    "They usually aren't…"
 
     show bg bedroom: 
         blur 0
@@ -53,10 +55,10 @@ label scene_1:
     with dissolve
 
     $ play_audio_if_exists("audio/bedsheets_rustle.wav", channel="sound")
-    "The bedsheets rustle as you shift, still half-lost in sleep."
+    "The bedsheets rustle as you shift, still half-asleep."
 
     $ stop_audio(channel="sound", fadeout=0.5)
-    "After lying in bed for a while, it's time for you to get up and start your day."
+    "After lying in bed for a while, you decide to get up and out of bed."
 
     $ play_audio_if_exists("audio/clothing.wav", channel="sound")
     "You shift your attention to the mirror and look at yourself."
@@ -66,7 +68,7 @@ label scene_1:
         "Perfectly ordinary.":
             show sam happy at right
             with dissolve
-            "For a moment, your reflection feels stable—almost believable."
+            "For a moment, your reflection feels stable — almost believable."
         "Not quite you.":
             show sam confused at right
             with dissolve

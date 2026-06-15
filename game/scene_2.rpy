@@ -9,23 +9,24 @@ label scene_2:
     $ renpy.music.stop(channel="music", fadeout=1.0)
     $ play_audio_if_exists("audio/rock_music_muffled.wav", channel="music", loop=True, fadein=1.0)
 
-    "As you enter the kitchen, you are greeted by the sound of your roommate, Michael, playing music loudly playing through his door."
+    "You enter the kitchen, and are immediately greeted by the sound of your roommate, Michael, playing music loudly through his door."
     hide sam
-    show sam embarassed at right
+    show sam angry at right
     "You decide to ignore it for now and make breakfast."
 
     menu:
-        "What do you want for breakfast?"
+        "What do you want to make for breakfast?"
         "Cereal":
             $ flag["breakfast"] = "cereal"
-            $ play_audio_if_exists("audio/cereal.mp3", channel="sound")
             show bg kitchen:
                 blur 20
             show sam embarassed:
                 blur 6
             show cereal at Transform(zoom=1.6)
             with dissolve
-            "You decide on something quick and easy. After pouring milk in your bowl you add your favorite cereal."
+            "You decide on something quick and easy."
+            $ play_audio_if_exists("audio/cereal.mp3", channel="sound")
+            "After pouring milk in a bowl, you add your favorite cereal."
             hide cereal
             show cereal_hello at Transform(zoom=1.6)
             with dissolve
@@ -39,11 +40,12 @@ label scene_2:
                 blur 6
             show eggs at Transform(zoom=1.6)
             with dissolve
-            "You decide on eggs and bacon. After heating up the pan the food cooks quickly and you put it on your plate."
+            "You decide on eggs and bacon."
+            "After heating up the pan, the food cooks quickly and you put it on your plate."
             hide eggs
             show eggs_smile at Transform(zoom=1.6)
             with dissolve
-            "You don't remember putting the food on the plate in this order."
+            "Huh, you don't remember putting the food on the plate in this order."
 
     scene bg kitchen
     show sam happy at right
@@ -52,19 +54,26 @@ label scene_2:
     "You sit down and start eating your breakfast."
     show sam angry at right
     
-    "But your roommate's loud music is starting to annoy you."
+    "But your roommate's loud music is really starting to get on your nerves."
 
-    "Angerly, you stand up and bang on his door."
-    $ play_audio_if_exists("audio/door_banging.ogg", channel="sound")
+    "Angrily, you stand up and start banging on his door."
 
     with dissolve
-
     sam "Michael, turn down your music!"
     "Nothing happens, he doesn't seem to hear you."
-    $ play_audio_if_exists("audio/door_banging.wav", channel="sound", loop=True)
-    "You hit his door again."
+    $ play_audio_if_exists("audio/door_banging.wav", channel="sound")
+    
+    $ bang = True
+    while bang:
+        menu:
+            "Keep banging on the door.":
+                "You bang on his door again."
+                $ play_audio_if_exists("audio/door_banging.wav", channel="sound")
+                sam "MICHAEL!!! I'm serious, turn it down!!"
+                "He still doesn't seem to hear you."
+            "Call his phone.":
+                $ bang = False
 
-    sam "MICHAEL!!! I'm serious, turn it down!!"
 
     $ stop_audio(channel="sound", fadeout=0.3)
     "Frustrated, you rush over and grab your phone to call him."
@@ -76,7 +85,9 @@ label scene_2:
     show phone at Transform(zoom = 2.3)
     with dissolve
 
-    "But as you pull up your messages you realize he texted you saying he was leaving the house early today."
+    "You pull up your messages and realize you have an unread text from him."
+    "He texted you saying he was leaving the house early today."
+    sam "..."
     "You realize he wasn't here the entire time."
 
     $ stop_audio(channel="music", fadeout=1.0)
@@ -89,31 +100,42 @@ label scene_2:
     hide sam angry
     hide phone
     with dissolve
-    $ play_audio_if_exists("audio/schizo_kitchen.wav", channel="music", loop=True)
+    $ play_audio_if_exists("audio/schizo_kitchen.mp3", channel="music", loop=True)
 
     # scene bg kitchen
     show sam embarassed at right
     with dissolve
 
-    "Frustrated, you sit down to finish your breakfast."
-    "You noticed you didn't have much food left in the fridge when you made breakfast."
+    "Sighing, you sit down to finish your breakfast."
 
-    $ play_audio_if_exists("audio/water_running.ogg", channel="sound")
-    "You wash your plate and decide to go to the grocery store."
+    "You notice you didn't have much food left in the fridge."
+
+    $ play_audio_if_exists("audio/water_running.wav", channel="sound", loop=True, fadein=0.5)
+    "You decide to wash your plate and go to the grocery store."
+
+    $ renpy.music.stop(channel="sound")
 
     show sam happy at right
     with dissolve
     show obj_dog at Transform(xalign=-0.005, yalign=1.0, zoom=1.37)
     with dissolve
-    "You call for your support dog, Charlie, a poodle, and grab her leash from the table. She runs over happily."
-    "Sometimes my medication doesn't make me feel great."
-    "I talked with my family and doctors, and they suggested having a support dog as well."
-    "Charlie helps me handle my symptoms even when I don't take my medication."
+    sam "Charlie, come here!"
+    $ play_audio_if_exists("audio/bark.wav", channel="sound")
+    "Charlie, your support dog, comes running towards you, cheerfully."
+    "You grab her leash from the table."
+    "Your doctors suggested getting a support dog a while back."
+    "She helps you handle your symptoms even when you don't take your medication."
+    hide sam happy 
+    show sam embarassed at right with dissolve
+    "You grimace as you think about taking your medication."
+    "Sometimes, it really doesn't make you feel great."
 
     menu:
-        "Before I leave, I remember my psychosis medication…should I take it?"
+        "Before you leave, you remember your psychosis medication…should you take it?"
         "Yes":
-            "I don't always like taking my medication, it makes me feel tired and sad sometimes. But after talking with my doctors, I know it's what's best for me. I've tried other ones, and this one works the best."
+            "You don't always like taking your medication, it makes you feel tired and sad sometimes."
+            "But after talking with your doctors about it, you know it's what's best for you."
+            "You've tried other ones, and this is the one that works the best."
             show sam happy:
                 blur 6
             show obj_dog:
@@ -132,11 +154,13 @@ label scene_2:
             with dissolve
             $ flag["meds"] = True
         "No":
-            "I decide not to take my medication. I've talked with my doctor and family about how different medications make me feel, and I haven't found the right one for me yet. But I've been learning to manage my symptoms with Charlie, so I think I will be okay."
+            "You decide not to take your medication."
+            "You've talked with your doctor and family about how different medications make you feel, and you haven't found the right one for you yet."
+            "But you've been learning to manage your symptoms with Charlie, so you think you will be okay."
             $ flag["meds"] = False
 
     "Picking up Charlie's leash, you clip it on her collar and head outside."
-    $ play_audio_if_exists("audio/footsteps.ogg", channel="sound")
+    $ play_audio_if_exists("audio/steps_door.wav", channel="sound")
     $ play_audio_if_exists("audio/door_open.ogg", channel="sound")
 
     call scene_3

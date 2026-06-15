@@ -1,4 +1,4 @@
-define mystery_person = Character(_("Mystery Person"), color="#f0b6ff")
+define mystery_person = Character(_("Stranger"), color="#f0b6ff")
 define grandpa = Character(_("Grandpa"), color="#9fd4ff")
 
 init python:
