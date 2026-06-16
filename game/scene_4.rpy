@@ -4,6 +4,7 @@ label scene_4:
 
 
     # $ play_audio_if_exists("audio/store_ambience.mp3" if flag["meds"] else "audio/store_music.ogg", channel="music", loop=True, fadein=tone_fadein())
+    $ play_audio_if_exists("audio/schizo_supermarket.mp3", channel="music", loop=True)
     $ play_audio_if_exists("audio/store_ambience.mp3", channel="sound", loop=True)
 
     "You step into the supermarket."
@@ -14,33 +15,32 @@ label scene_4:
     "The supermarket is bustling with people."
 
     "You walk towards the breakfast aisle."
-    "There are students with a cart of party food, a mom with a stroller, and an old man with a walking stick looking at the shelves."
-
-    $ play_audio_if_exists("audio/crowd_chatter_soft.ogg" if flag["meds"] else "audio/crowd_chatter.ogg", channel="sound", loop=True)
+    "You see students with a cart of party food, a mom with a stroller, and an old man with a walking stick looking at the shelves."
 
     "The overwhelming number of people in the small aisle suddenly makes you panic."
-    "You feel overwhelmed, like an intruder."
     
     # Starts with a slow heartbeat audio
-
     show panic_overlay at (panic_pulse_med_slow if flag["meds"] else panic_pulse_nomed_slow)
+    
     # Starts with a slow heartbeat shake
     show layer master at (heartbeat_shake_med_slow if flag["meds"] else heartbeat_shake_nomed_slow)
     show sam scared at right
     with dissolve
 
-    $ play_audio_if_exists("audio/kid_doggy.ogg", channel="sound2")
-    $ stop_audio(channel="sound", fadeout=5.5)
-    "Doggy!!"
-
+    $ stop_audio(channel="music", fadeout=5.3)
+    $ stop_audio(channel="sound", fadeout=5.3)
+    "You feel overwhelmed, like an intruder."
+    
     # Heartbeat becomes more frequent (medium) & medium audio
-    $ play_audio_if_exists("audio/store_ambience_muffled.wav", channel="sound", loop=True, fadein=3.3)
     $ play_audio_if_exists("audio/heartbeat_fast.mp3", channel="sound2", loop=True, start=0.5)
     show panic_overlay at (panic_pulse_med_medium if flag["meds"] else panic_pulse_nomed_medium)
     show layer master at (heartbeat_shake_med_medium if flag["meds"] else heartbeat_shake_nomed_medium)
+    
     "You feel like everyone is looking at you."
     
     # Sound becomes muffled
+    # $ play_audio_if_exists("audio/schizo_supermarket_muffled.mp3", channel="music", loop=True, fadein = 1.3)
+    $ play_audio_if_exists("audio/store_ambience_muffled.wav", channel="sound", loop=True, fadein=3.3)
 
     # Heartbeat becomes even more frequent (fast) & fast audio
     show panic_overlay at (panic_pulse_med_fast if flag["meds"] else panic_pulse_nomed_fast)
@@ -53,10 +53,10 @@ label scene_4:
     show panic_overlay at (panic_pulse_med_slow if flag["meds"] else panic_pulse_nomed_slow)
     show layer master at (heartbeat_shake_med_slow if flag["meds"] else heartbeat_shake_nomed_slow)
     with dissolve
-    "Charlie comes up to you, and the feel of her fur against your hand helps you calm down."
+    $ play_audio_if_exists("audio/dog_whine.wav", channel="sound2")
+    "Charlie comes up to you, and the feel of her fur against your hand helps you calm down a little."
 
-
-    "After a few deep breaths, you start to relax."
+    "After a few deep breaths, you slowly start to relax."
 
     # Fades out completely and stops
     hide panic_overlay
@@ -69,9 +69,9 @@ label scene_4:
 
     with Fade(0.05, 0.0, 0.2, color="#fff")
 
-
     show sam shocked at right
     "Then everything freezes."
+
     # Starts medium heartbeat audio for the stare sequence
     $ play_audio_if_exists("audio/heartbeat_fast.mp3", channel="sound2", loop=True, start=0.5)
     show panic_overlay at (panic_pulse_med_medium if flag["meds"] else panic_pulse_nomed_medium)
@@ -87,30 +87,37 @@ label scene_4:
     show panic_overlay at (panic_pulse_med_slow if flag["meds"] else panic_pulse_nomed_slow)
     show layer master at (heartbeat_shake_med_slow if flag["meds"] else heartbeat_shake_nomed_slow)
 
+    $ play_audio_if_exists("audio/dog_whine.wav", channel="sound2")
     "Charlie starts pawing at you."
     "You are reminded of what happened earlier."
+
     sam "Charlie, go say hi!"
+    $ stop_audio(channel="sound2", fadeout=4.3)
+    $ stop_audio(channel="sound", fadeout=4.3)
     "Charlie stays by your side."
 
     hide panic_overlay
     show layer master
     # Stop heartbeat audio completely
-    $ stop_audio(channel="sound2", fadeout=0.3)
-    $ stop_audio(channel="sound", fadeout=0.3)
     $ play_audio_if_exists("audio/store_ambience.mp3", channel="sound", loop=True, fadein=4.3)
+    $ play_audio_if_exists("audio/schizo_supermarket.mp3", channel="music", loop=True, fadein=5.3)
+    
     with Dissolve(0.3)
 
     scene bg supermarket_aisle at Transform(yalign=0.5)
     with dissolve
 
     "You are snapped back to reality."
-    "No one was staring at you."
+    "No one was staring at you at all."
     "The group of students are still laughing, and the mom is wheeling her kid away."
 
     show grandpa_sprite at Transform(xalign=0.6, yalign=1.0)
     show sam embarassed at right
     with dissolve
     grandpa "Are you okay?"
+    
+    $ play_audio_if_exists("audio/bark.wav", channel="sound2")
+    "Charlie lets out a little reassuring bark, in greeting."
 
     hide scene_tone
     hide grandpa_sprite
@@ -121,7 +128,7 @@ label scene_4:
 
     show sam happy at right
     with dissolve
-    sam "I'm fine, thanks! Come on Charlie, good girl."
+    sam "I'm fine, thank you! Come on Charlie, good girl!"
 
     jump credits
 

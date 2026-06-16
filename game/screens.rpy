@@ -348,7 +348,12 @@ screen main_menu():
     tag menu
 
     # add gui.main_menu_background
-    add "menu_bg" at slow_zoom
+    add "menu_bg" at slow_zoom, Transform(yalign=1.1)
+
+    add "gui/title.png":
+        xalign 1.0
+        yalign 0.05
+        zoom 2
 
     ## This empty frame darkens the main menu.
     frame:
@@ -363,11 +368,11 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            # text "[config.name!t]":
+            #     style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+            # text "[config.version]":
+            #     style "main_menu_version"
 
 
 style main_menu_frame is empty
