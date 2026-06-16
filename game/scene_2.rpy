@@ -131,7 +131,7 @@ label scene_2:
     "Sometimes, it really doesn't make you feel great."
 
     menu:
-        "Should you take the medication?"
+        "Should you take my medication?"
         "Yes":
             "You don't always like taking your medication, it makes you feel tired and sad sometimes."
             "But after talking to your doctors about it, you know it's what's best for you."
