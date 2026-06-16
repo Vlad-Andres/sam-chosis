@@ -112,7 +112,7 @@ label scene_2:
     "Charlie helps me handle my symptoms even when I don't take my medication."
 
     menu:
-        "Before I leave, I remember my psychosis medication…should I take it?"
+        "So should I take the medication?"
         "Yes":
             "I don't always like taking my medication, it makes me feel tired and sad sometimes. But after talking with my doctors, I know it's what's best for me. I've tried other ones, and this one works the best."
             show sam happy:
